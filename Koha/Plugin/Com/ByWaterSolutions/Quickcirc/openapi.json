@@ -1,0 +1,47 @@
+{
+  "/quickcirc": {
+    "post": {
+      "x-mojo-to": "Com::ByWaterSolutions::Quickcirc::Controller#circulate",
+      "operationId": "addCirculation",
+      "tags": ["quickcirc"],
+      "produces": [
+        "application/json"
+      ],
+      "parameters": [{
+        "name": "body",
+        "in": "body",
+        "description": "Circ info",
+        "required": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "barcode": {
+            "description": "Item barcode to circ",
+            "type": "string"
+            }
+          }
+        }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Result, either returned or checkedout"
+        },
+        "403": {
+          "description": "You are not authorized to use quickcirc"
+        },
+        "404": {
+          "description": "Item not found"
+        },
+        "500": {
+          "description": "Something went wrong"
+        }
+      },
+      "x-koha-authorization": {
+        "permissions": {
+          "circulate": 1
+        }
+      }
+    }
+  }
+}
