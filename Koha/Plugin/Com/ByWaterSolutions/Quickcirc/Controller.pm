@@ -56,7 +56,7 @@ sub circulate {
         if( defined $messages->{'ResFound'} ){
             my $reserve = $messages->{'ResFound'};
             my $patron = Koha::Patrons->find({ borrowernumber => $reserve->{borrowernumber} });
-			my $issue = C4::Circulation::AddIssue( $patron->unblessed, $barcode );
+			my $issue = C4::Circulation::AddIssue( $patron, $barcode );
 			# We don't pass a branch, rely on C4::Context->userenv
 			# We don't exempt fines
 			# We don't pass a return date, just use 'now'

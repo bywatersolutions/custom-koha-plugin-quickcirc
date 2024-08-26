@@ -13,14 +13,14 @@ use base qw(Koha::Plugins::Base);
 
 ## Here we set our plugin version
 our $VERSION         = "{VERSION}";
-our $MINIMUM_VERSION = "22.11.00";
+our $MINIMUM_VERSION = "24.05.00";
 
 ## Here is our metadata, some keys are required, some are optional
 our $metadata = {
     name            => 'Quickcirc Plugin',
     author          => 'Nick Clemens',
     date_authored   => '2023-02-17',
-    date_updated    => "1900-01-01",
+    date_updated    => "2024-08-26",
     minimum_version => $MINIMUM_VERSION,
     maximum_version => undef,
     version         => $VERSION,
@@ -48,28 +48,6 @@ sub install {
     my $dbh = C4::Context->dbh;
     return 1;
 }
-
-sub configure {
-    my ( $self, $args ) = @_;
-    my $cgi = $self->{'cgi'};
-
-    my $template = $self->get_template({ file => 'config.tt' });
-    print $cgi->header();
-    print $template->output();
-}
-
-sub tool {
-    my ( $self, $args ) = @_;
-    my $cgi = $self->{'cgi'};
-
-    $self->tool_step_1();
-}
-
-sub tool_step_1 {
-    return;
-}
-
-
 
 sub upgrade {
     my ( $self, $args ) = @_;
