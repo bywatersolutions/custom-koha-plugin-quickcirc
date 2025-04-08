@@ -3,7 +3,8 @@ $(document).ready(function(){
     $("body").on('click','.launch_quickcirc',function(){
         $("#qc_error").text('').hide();
         $("#qc_results_list").html('');
-        $("#quickcirc_modal").modal({show:true});
+        var myModal = new bootstrap.Modal(document.getElementById('quickcirc_modal'));
+myModal.show();
     });
 
     $("body").on('submit',"#quickcirc_form",function(e){
