@@ -77,7 +77,7 @@ sub intranet_head {
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="closebtn" data-dismiss="modal" aria-label="Close">x</button>
+                        <button type="button" class="closebtn" data-bs-dismiss="modal" aria-label="Close">x</button>
                         <h3 class="modal-title">Quick Circulation</h3>
                     </div>
                     <div class="modal-body">
@@ -95,7 +95,7 @@ sub intranet_head {
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
