@@ -52,7 +52,10 @@ sub circulate {
     }
 
     return try {
-		my ($doreturn, $messages, $issue) = C4::Circulation::AddReturn( $barcode );
+        my ($doreturn, $messages, $issue) = C4::Circulation::AddReturn(
+            $barcode,
+            $item->homebranch  #force the return to be done at the items homebranch
+        );
         if( defined $messages->{'ResFound'} ){
             my $reserve = $messages->{'ResFound'};
             my $patron = Koha::Patrons->find({ borrowernumber => $reserve->{borrowernumber} });
